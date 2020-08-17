@@ -1,10 +1,22 @@
 <p align="center">
-
   <a href="https://www.vtil.org/">
-    <img width="256" heigth="256" src="https://i.imgur.com/5yt7EsH.png">
-  </a>  
-
+    <img width="256" heigth="256" src="https://raw.githubusercontent.com/can1357/NoVmp/master/assets/logo.png">
+  </a>
+  
   <h1 align="center">NoVmp</h1>
+  
+  <p align="center">
+    <a href="https://ci.appveyor.com/project/can1357/NoVmp">
+      <img src="https://img.shields.io/appveyor/build/can1357/NoVmp?logo=appveyor&style=flat-square" alt="appveyor-ci"/>
+    </a>
+    <a href="https://github.com/can1357/NoVmp/blob/master/LICENSE.md">
+      <img src="https://img.shields.io/github/license/can1357/NoVmp.svg?style=flat-square" alt="license"/>
+    </a>
+  </p>
+  
+  <p align="center">
+    A static devirtualizer for VMProtect x64 3.x powered by VTIL.
+  </p>
 </p>
 
 ### VMProtect? Nope.
@@ -20,11 +32,12 @@ By default NoVmp will parse every single jump into a VM, if you are only interes
 `-vms 0x729B81 0x72521`
 
 These addresses should be pointing at the VMEnter, as shown below:
-![VMEnter](https://i.imgur.com/oIrgvVh.png)
+
+![VMEnter](https://raw.githubusercontent.com/can1357/NoVmp/master/assets/vmenter.png)
 
 By default section discovery is automatic, but in case your calls are not being chained you should try adding the VMProtect section name into the section list using `-sections` as shown below:
 
-`-sections .abc0 .def0`
+`-sections .xxx0 .yyy0`
 
 Note that the `.<vmp>1` section is the merged VMProtect DLL which should not be inputted.
 
@@ -35,7 +48,7 @@ Additionally you can use any of the following switches:
 
 # Known bugs
 - Known issues from VTIL-Core, mainly the lack of jump table support and propagation passes taking too long/not being great which are being worked on.
-- Binaries compiled with relocations stripped will require some manual code changes as it changes the way basic blocks function, this is left to the user and won't be fixed.
+- Binaries compiled with relocations stripped are not fully supported yet.
 - Experimental compiler is a borderline broken demo, issues related to it should not be submitted as it'll be reworked and will be in VTIL-Core.
 
 # License
